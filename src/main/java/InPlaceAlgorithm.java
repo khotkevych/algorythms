@@ -1,9 +1,12 @@
 import java.util.Arrays;
 
+// Given a Data Structure having first n integers and next n chars.
+// A = i1 i2 i3 … iN c1 c2 c3 … cN.
+// Write an in-place algorithm to rearrange the elements of the array ass A = i1 c1 i2 c2 … in cn
 public class InPlaceAlgorithm {
 
     public static void main(String[] args) {
-        Object array[] = {0, 1, 2, 3, 4, 5,"a", "b", "c", "d", "e", "f"};
+        Object array[] = {0, 1, 2, 3, 4, 5, "a", "b", "c", "d", "e", "f"};
         int n = array.length;
         Object tmp;
         int j = 1;
@@ -12,9 +15,10 @@ public class InPlaceAlgorithm {
             for (int k = n / 2 - 1 + j; k > i; k--) {
                 array[k] = array[k - 1];
             }
-            array[i] =tmp;
+            array[i] = tmp;
             j++;
             System.out.println(Arrays.toString(array));
         }
     }
+
 }
