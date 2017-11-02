@@ -3,7 +3,7 @@ public class ReverseString {
 
 
     public static void main(String[] args) {
-        String hello = "HelloWorld";
+        String hello = "HelloWorld123456789";
         char str[] = hello.toCharArray();
         char tmp;
         for (int i = 0; i < str.length - 1; i++) {
@@ -15,7 +15,7 @@ public class ReverseString {
         }
         System.out.println(str);
         str = hello.toCharArray();
-        for (int i = 0; i < (str.length - 1) / 2; i++) {
+        for (int i = 0; i < (str.length - 1) / 2 + 1; i++) {
             tmp = str[i];
             str[i] = str[str.length -1 - i];
             str[str.length -1 - i] = tmp;
