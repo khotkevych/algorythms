@@ -9,15 +9,18 @@ public class InPlaceAlgorithm {
         Object array[] = {0, 1, 2, 3, 4, 5, "a", "b", "c", "d", "e", "f"};
         int n = array.length;
         Object tmp;
-        int j = 1;
-        for (int i = 1; i < n - 1; i = i + 2) {
+        for (int i = 1, j = 1; i < n - 1; i = i + 2, j++) {
             tmp = array[n / 2 - 1 + j];
-            for (int k = n / 2 - 1 + j; k > i; k--) {
+            System.out.println("Moving element " + tmp);
+            /*for (int k = n / 2 - 1 + j; k > i; k--) {
                 array[k] = array[k - 1];
-            }
+            }*/
+            System.out.println("Moving array from the position " + i + " to the right");
+            System.arraycopy(array, i, array, i + 1, n / 2 - 1 + j - i);
+            System.out.println("Setting element '" + tmp + "' to the position " + i);
             array[i] = tmp;
-            j++;
             System.out.println(Arrays.toString(array));
+            System.out.println();
         }
     }
 
