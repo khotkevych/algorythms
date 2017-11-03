@@ -23,7 +23,7 @@ public class Rand17 {
         return x;*/
         int x = 22;
         while (x > 21) {
-            x = rand5() + 5 * rand5() - 5;
+            x = rand25();
         }
         return 1 + (x % 7);
     }
