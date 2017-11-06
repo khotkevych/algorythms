@@ -1,7 +1,7 @@
 // Implement division (without using the divide operator, obviously).
 public class Division {
     // todo complex
-    private static int accuracy = 6;
+    private static int accuracy = 8;
 
     private static Double divide(Double a, Double b) {
         if (a == 0.0 || b == 1.0) {
@@ -10,33 +10,35 @@ public class Division {
         if (b == 0.0) {
             return null;
         }
-        boolean isNegative = false;
+        Integer mantissa = 0, exponent = 0, sign = 1;
         if (a < 0.0 ^ b < 0.0) {
-            isNegative = true;
+            sign = -1;
         }
         a = Math.abs(a);
         b = Math.abs(b);
-        Integer res = 0;
         while (a >= b) {
             a -= b;
-            res++;
+            mantissa++;
         }
-        String result = res.toString();
         if (a != 0) {
             int i = 0;
-            result += '.';
             while (i < accuracy && a != 0) {
-                a = a * 10.0 - b;
-                result += a.toString().charAt(0);
+                // todo round
+                mantissa *= 10;
+                a *= 10;
+                while (a >= b) {
+                    a -= b;
+                    mantissa++;
+                }
                 i++;
+                exponent--;
             }
         }
-        return isNegative ? (-1.0) * new Double(result) : new Double(result);
+        return sign * mantissa * Math.pow(10, exponent);
     }
 
     public static void main(String[] args) {
-        System.out.println(divide(9.0, 6.0));
-
+        System.out.println(divide(-235.0, -15.0));
     }
 
 }
