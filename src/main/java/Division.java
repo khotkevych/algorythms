@@ -1,9 +1,10 @@
 // Implement division (without using the divide operator, obviously).
 public class Division {
     // todo complex
+    // todo remove Math.pow and use binary division
     private static int accuracy = 8;
 
-    private static Double divide(Double a, Double b) {
+    private static Double divide(double a, double b) {
         if (a == 0.0 || b == 1.0) {
             return a;
         }
@@ -16,6 +17,9 @@ public class Division {
         }
         a = Math.abs(a);
         b = Math.abs(b);
+        if (a == b) {
+            return new Double(sign);
+        }
         while (a >= b) {
             a -= b;
             mantissa++;
@@ -34,11 +38,11 @@ public class Division {
                 exponent--;
             }
         }
-        return sign * mantissa * Math.pow(10, exponent);
+        return sign * mantissa * Math.pow(10, exponent); // use * 0.1 instead ?
     }
 
     public static void main(String[] args) {
-        System.out.println(divide(-235.0, -15.0));
+        System.out.println(divide(-55.4, -7.6));
     }
 
 }
