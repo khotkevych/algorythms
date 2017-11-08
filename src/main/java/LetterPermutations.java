@@ -8,6 +8,24 @@ public class LetterPermutations {
     // combination Ckn = n! / k!(n-k)! - without order
     // permutation Pn = n!
 
+    private static void permutation(String str) {
+        permutation("", str);
+    }
+
+    private static void permutation(String prefix, String str) {
+        int n = str.length();
+        System.out.println("prefix=" + prefix + ". str=" + str);
+        if (n == 1) {
+            System.out.println(prefix + str);
+        } else {
+            for (int i = 0; i < n; i++) {
+                System.out.println("i=" + i + " n=" + n);
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+                System.out.println("Out i=" + i + " n=" + n);
+            }
+        }
+    }
+
     private static List<String> getPermutations(String str) {
         List<String> permutations = new ArrayList<>();
         return permutations;
@@ -76,9 +94,10 @@ public class LetterPermutations {
         System.out.println((endTime - startTime) / 1000000);*/
 
 
-        String str = "hello";
-        List<String> permutations = getPermutations(str);
-        System.out.println(factorial(str.length()) + " " + permutations.size());
-        System.out.println(permutations);
+        String str = "abc";
+        //List<String> permutations = getPermutations(str);
+        //System.out.println(factorial(str.length()) + " " + permutations.size());
+        //System.out.println(permutations);
+        permutation(str);
     }
 }
