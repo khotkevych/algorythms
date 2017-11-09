@@ -15,14 +15,13 @@ public class LetterPermutations {
     private static List<String> permutation(String prefix, String str) {
         List<String> permutations = new ArrayList<>();
         int n = str.length();
-        System.out.println("prefix=\"" + prefix + "\" str=\"" + str + "\"");
         if (n == 1) {
             System.out.println(prefix + str);
             permutations.add(prefix + str);
             return permutations;
         } else {
             for (int i = 0; i < n; i++) {
-                System.out.println("In i=" + i + " n=" + n);
+                System.out.println("In i=" + i + " n=" + n + " prefix=\"" + prefix + "\" str=\"" + str + "\"");
                 permutations.addAll(permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n)));
                 System.out.println("Out i=" + i + " n=" + n);
             }
