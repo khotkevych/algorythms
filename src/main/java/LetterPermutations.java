@@ -15,9 +15,9 @@ public class LetterPermutations {
     private static List<String> permutation(String prefix, String str) {
         List<String> permutations = new ArrayList<>();
         int n = str.length();
-        if (n == 1) {
-            System.out.println(prefix + str);
-            permutations.add(prefix + str);
+        if (n == 0) {
+            System.out.println(prefix);
+            permutations.add(prefix);
             return permutations;
         } else {
             for (int i = 0; i < n; i++) {
@@ -27,6 +27,33 @@ public class LetterPermutations {
             }
         }
         return permutations;
+    }
+
+    private static List<String> permute(String str) {
+        return permute(str, 0, str.length() - 1);
+    }
+
+    private static List<String> permute(String str, int l, int r) {
+        List<String> permutations = new ArrayList<>();
+        if (l == r) {
+            System.out.println(str);
+            permutations.add(str);
+            return permutations;
+        }
+        for (int i = l; i <= r; i++) {
+            str = swap(str, l, i);
+            permutations.addAll(permute(str, l + 1, r));
+            str = swap(str, l, i); //backtrack
+        }
+        return permutations;
+    }
+
+    private static String swap(String s, int l, int r) {
+        char[] c = s.toCharArray();
+        char temp = c[l];
+        c[l] = c[r];
+        c[r] = temp;
+        return new String(c);
     }
 
     /* todo try Gamma function https://introcs.cs.princeton.edu/java/91float/Gamma.java.html
@@ -92,8 +119,8 @@ public class LetterPermutations {
         System.out.println((endTime - startTime) / 1000000);*/
 
 
-        String str = "1234";
-        List<String> permutations = permutation(str);
+        String str = "123";
+        List<String> permutations = permute(str);
         System.out.println("\n\n\n" + factorial(str.length()) + " " + permutations.size());
         System.out.println(permutations);
     }
