@@ -7,7 +7,7 @@ public class PowerOfTwo {
     */
 
     public static void main(String args[]) {
-        int n = 5, sum = 0, i = 1;
+        int n = 17, sum = 0, i = 1;
         // 1
         for (int j = 1; j <= n; j++) {
             i = i << 1;
@@ -23,4 +23,15 @@ public class PowerOfTwo {
         System.out.println(sum + " " + bruteForce + " " + s);
 
     }
+
+    /*
+    N = 1 -> 0000010  (2^1 or 1<<1)
+    N = 2 -> 0000100  (2^2 or 1<<2)
+    N = 3 -> 0001000  (2^3 or 1<<3)
+    N = 4 -> 0010000  (2^4 or 1<<4)
+
+    sum   -> 0011110
+    We can compute 0011110 as 0100000 - "2"
+    So the answer is (1<<(N+1))-2 or (2<<N)-2
+    */
 }
