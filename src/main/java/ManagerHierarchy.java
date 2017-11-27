@@ -17,6 +17,8 @@ class Node {
         data = item;
         left = right = null;
     }
+
+
 }
 
 
@@ -70,6 +72,25 @@ public class ManagerHierarchy {
 
     }
 
+    /*//for int data
+    private void insert(Node node, int value) {
+        if (value < node.data) {
+            if (node.left != null) {
+                insert(node.left, value);
+            } else {
+                System.out.println("  Inserted " + value + " to left of Node " + node.value);
+                node.left = new Node(value);
+            }
+        } else if (value > node.data) {
+            if (node.right != null) {
+                insert(node.right, value);
+            } else {
+                System.out.println("  Inserted " + value + " to right of Node " + node.value);
+                node.right = new Node(value);
+            }
+        }
+    }*/
+
     public static void main(String args[]) {
         ManagerHierarchy tree = new ManagerHierarchy();
 
@@ -87,6 +108,13 @@ public class ManagerHierarchy {
         tree.root.left.left.right = new Node("David");
         tree.root.left.right = new Node("Steve");
         tree.root.left.right.left = new Node("Mat");
+
+        /*
+        Jon
+        Lee
+        Paul Steve
+        Mark David Mat
+        */
 
         tree.printLevelOrder();
     }
