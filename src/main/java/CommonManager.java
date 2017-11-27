@@ -23,16 +23,21 @@ public class CommonManager {
     private static HashMap<String, String> map = new HashMap<>();
 
     private static String findManager(String name1, String name2) {
-        if (map.containsKey(name1) && map.get(name1).equals(name2)) {
+        /*if (map.containsKey(name1) && map.get(name1).equals(name2)) {
             return name1;
         }
         if (map.containsKey(name2) && map.get(name2).equals(name1)) {
             return name2;
-        }
+        }*/
         LinkedList<String> parent1 = new LinkedList<>();
         LinkedList<String> parent2 = new LinkedList<>();
         getParents(parent1, name1);
         getParents(parent2, name2);
+        if(parent1.contains(name2)){
+            return name2;
+        }else if(parent2.contains(name1)) {
+            return name1;
+        }
         parent1.retainAll(parent2);
         return parent1.peek();
     }
@@ -54,12 +59,11 @@ public class CommonManager {
     }
 
     public static void main(String[] args) {
-        String name1 = "Hilary", name2 = "James";
-        add("Sarah", "Fred");
-        add("Sarah", "Paul");
-        add("Fred", "Hilary");
-        add("Fred", "Jenny");
-        add("Jenny", "James");
-        System.out.println(findManager(name1, name2)); // "Fred"
+        String name1 = "Sarah", name2 = "Claudiu";
+        add("June", "Sarah");
+        add("Sarah", "Tom");
+        add("Tom", "Simon");
+        add("Tom", "Claudiu");
+        System.out.println(findManager(name1, name2)); // "Sarah"
     }
 }
