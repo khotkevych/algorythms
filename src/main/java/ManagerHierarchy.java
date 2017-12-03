@@ -9,21 +9,18 @@ The input is correct (there are only direct management relations, no cycles).
 For simplicity, the first line after the number of employees always contains the manager at the top of the hierarchy.
 Write a program that reads the input file and then prints out the employees per level, in order of their importance (i.e. hierarchy):
 */
-class Node {
-    String data;
-    Node left, right;
-
-    Node(String item) {
-        data = item;
-        left = right = null;
-    }
-
-
-}
-
 
 public class ManagerHierarchy {
 
+    static class Node {
+        String data;
+        Node left, right;
+
+        Node(String item) {
+            data = item;
+            left = right = null;
+        }
+    }
     private Node root;
 
     private ManagerHierarchy() {
