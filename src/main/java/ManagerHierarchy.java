@@ -75,14 +75,14 @@ public class ManagerHierarchy {
             if (node.left != null) {
                 insert(node.left, value);
             } else {
-                System.out.println("  Inserted " + value + " to left of Node " + node.value);
+                System.out.println("  Inserted " + value + " to left of node " + node.value);
                 node.left = new Node(value);
             }
         } else if (value > node.data) {
             if (node.right != null) {
                 insert(node.right, value);
             } else {
-                System.out.println("  Inserted " + value + " to right of Node " + node.value);
+                System.out.println("  Inserted " + value + " to right of node " + node.value);
                 node.right = new Node(value);
             }
         }
