@@ -73,11 +73,13 @@ class MiddleNodeList2 {
         final Node l = last;
         Node node = new Node(data, l);
         last = node;
-        if (first == null)
+        if (first == null) {
             first = last;
-        else
-            //node.prev.next = node;
-            node.next = node;
+        }
+        else {
+            node.prev.next = node;
+            //node.next = node;
+        }
         size++;
     }
 

@@ -16,10 +16,10 @@ public class ReverseDoubledList {
 
     private void add(int data){
         Node node = new Node(data);
-        node.next = head;
         if(head != null){
             head.prev = node;
         }
+        node.next = head;
         head = node;
     }
 
