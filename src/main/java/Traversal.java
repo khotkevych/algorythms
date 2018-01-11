@@ -34,12 +34,8 @@ public class Traversal {
             // Get all adjacent vertices of the dequeued vertex s
             // If a adjacent has not been visited, then mark it
             // visited and enqueue it
-            Iterator<Integer> i = adj[s].listIterator();
-            while (i.hasNext())
-            {
-                int n = i.next();
-                if (!visited[n])
-                {
+            for (Integer n : adj[s]) {
+                if (!visited[n]) {
                     visited[n] = true;
                     queue.add(n);
                 }
@@ -53,10 +49,7 @@ public class Traversal {
         visited[v] = true;
         System.out.print(v+" ");
         // Recur for all the vertices adjacent to this vertex
-        Iterator<Integer> i = adj[v].listIterator();
-        while (i.hasNext())
-        {
-            int n = i.next();
+        for (Integer n : adj[v]) {
             if (!visited[n])
                 DFSUtil(n, visited);
         }
