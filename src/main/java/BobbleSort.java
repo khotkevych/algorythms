@@ -60,6 +60,7 @@ public class BobbleSort {
     public static void main(String[] args) {
         int[] a = new int[]{5, 3, 7, 8, 4, 9, 1};
         System.out.println(Arrays.toString(a));
-        bubblesortBack(a);
+        bubblesort(a);
+        //bubblesortBack(a);
     }
 }
